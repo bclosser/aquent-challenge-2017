@@ -8,7 +8,7 @@ export default class FilterableMemberTable extends React.Component {
 
 		this.state = {
 			searchTerm: '',
-			filteredMembers: []
+			filteredMembers: this.props.members
 		}
 
 		this.filterMembers = this.filterMembers.bind(this);
@@ -16,17 +16,24 @@ export default class FilterableMemberTable extends React.Component {
 	}
 
 	filterMembers(members, term) {
-		let filtered = members;
-		this.setState({filteredMembers: filtered})
+		let filtered = members.filter( (member) => {
+			if(member.firstName.toLowerCase().match(term.toLowerCase()) || 
+				 member.surname.toLowerCase().match(term.toLowerCase()) ||
+			 	 member.occupation.toLowerCase().match(term.toLowerCase()) ||
+			 	 member.company.toLowerCase().match(term.toLowerCase())) {
+					return member
+				}
+		})
+		console.log(filtered)
+		this.setState({filteredMembers: filtered});
 	}
 
 	handleChange(event) {
 		this.setState({searchTerm: event.target.value})
-		this.filterMembers(this.props.members, this.state.searchTerm)
+		this.filterMembers(this.props.members, event.target.value)
 	}
 
 	render() {
-		var rows = []
 		return (
 			<div>
 				<div className="row">
@@ -44,7 +51,7 @@ export default class FilterableMemberTable extends React.Component {
 						</div>
 					</div>					
 				</div>				
-				<MemberTable filteredMembers={this.state.filteredMembers}/>
+				<MemberTable members={this.state.filteredMembers} />
 			</div>
 		);
 	}

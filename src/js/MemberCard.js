@@ -5,11 +5,6 @@ export default class MemberCard extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// this.state = {
-		//  	memberImage: this.props.member.portrait,
-		// 	memberName: this.props.member.firstName + this.props.member.surname,
-		// 	memberQuote: this.props.member.quote
-		// }
 	}
 
 	render() {
@@ -17,6 +12,9 @@ export default class MemberCard extends React.Component {
 			<div>
 				<div className="col-md-4">
 					<div className="well well-lg">
+						<h2>{this.props.member.firstName} {this.props.member.surname}</h2>
+						<img src={this.props.member.portrait} />
+						<p>{this.props.member.motto}</p>
 					</div>
 				</div>
 			</div>
