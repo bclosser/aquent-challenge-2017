@@ -1,18 +1,18 @@
-import React from 'react';
-import MemberTable from './MemberTable.js';
+import React from 'react'
+import MemberTable from './MemberTable.js'
 
 export default class FilterableMemberTable extends React.Component {
 
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			searchTerm: '',
 			filteredMembers: this.props.members
 		}
 
-		this.filterMembers = this.filterMembers.bind(this);
-		this.handleChange = this.handleChange.bind(this);
+		this.filterMembers = this.filterMembers.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 	}
 
 	filterMembers(members, term) {
@@ -25,7 +25,7 @@ export default class FilterableMemberTable extends React.Component {
 				}
 		})
 		console.log(filtered)
-		this.setState({filteredMembers: filtered});
+		this.setState({filteredMembers: filtered})
 	}
 
 	handleChange(event) {
@@ -38,10 +38,10 @@ export default class FilterableMemberTable extends React.Component {
 			<div>
 				<div className="row">
 					<div className="col-md-12">
-						<div className="input-group">
+						<div className="input-group" style={{paddingBottom: "15px"}}>
 							<span className="input-group-addon" id="searchIcon">
 								<span className="glyphicon glyphicon-search" aria-hidden="true"></span>
-						  	</span>
+						  </span>
 						  	<input type="text"
 						  		className="form-control"
 						  		placeholder="Search Members" 
@@ -50,10 +50,12 @@ export default class FilterableMemberTable extends React.Component {
 						  		onChange={this.handleChange} />
 						</div>
 					</div>					
+				</div>
+				<div className="row">
+					<MemberTable members={this.state.filteredMembers} />
 				</div>				
-				<MemberTable members={this.state.filteredMembers} />
 			</div>
-		);
+		)
 	}
 
 }

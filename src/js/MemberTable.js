@@ -1,5 +1,5 @@
-import React from 'react';
-import MemberCard from './MemberCard.js';
+import React from 'react'
+import MemberCard from './MemberCard.js'
 
 export default class MemberTable extends React.Component {
 
@@ -10,8 +10,8 @@ export default class MemberTable extends React.Component {
 			selectedMember: {
 				firstName: "Select",
 				surname: "Member",
-				portrait: "",
-				quote: ""
+				portrait: "http://s1.postimg.org/j5mytq3iz/profile.jpg",
+				quote: "Select Member to see their motto!"
 			}
 		}
 		
@@ -40,10 +40,10 @@ export default class MemberTable extends React.Component {
 		
 		return (
 			<div>
-				<div className="col-md-8">
-					<table className="table table-striped table-fixed">
+				<div className="col-md-8" style={{height: "250px", overflow: "scroll"}}>
+					<table className="table table-striped table-hover">
 						<thead>
-							<tr>
+							<tr className="info">
 								<th>Name</th>
 								<th>Occupation</th>
 								<th>Company</th>
@@ -56,7 +56,7 @@ export default class MemberTable extends React.Component {
 				</div>
 				<MemberCard member={this.state.selectedMember}/>
 			</div>
-		);
+		)
 	}
 
 }
