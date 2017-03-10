@@ -10,6 +10,8 @@ export default class MemberTable extends React.Component {
 			selectedMember: {
 				firstName: "Select",
 				surname: "Member",
+				occupation: "",
+				company: "",
 				portrait: "http://s1.postimg.org/j5mytq3iz/profile.jpg",
 				quote: "Select Member to see their motto!"
 			}
@@ -38,7 +40,7 @@ export default class MemberTable extends React.Component {
 		
 		return (
 			<div>
-				<div className="col-md-8" style={{height: "250px", overflow: "scroll"}}>
+				<div className="col-md-8" style={{height: "300px", overflow: "scroll"}}>
 					<table className="table table-striped table-hover">
 						<thead>
 							<tr className="info">
