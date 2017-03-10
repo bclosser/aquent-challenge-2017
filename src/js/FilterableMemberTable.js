@@ -24,7 +24,6 @@ export default class FilterableMemberTable extends React.Component {
 					return member
 				}
 		})
-		console.log(filtered)
 		this.setState({filteredMembers: filtered})
 	}
 

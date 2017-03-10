@@ -20,12 +20,10 @@ class App extends React.Component {
 
 
 	getMembers() {
-		console.log('Fetching Members')
 		fetch('http://private-a73e-aquentuxsociety.apiary-mock.com/members')
 			.then(response => response.json())
 			.then(json => {
 				this.setState({members: json, isLoading: false})
-				console.log("Got Members")
 			})
 	}
 

@@ -15,7 +15,7 @@ export default class MemberCard extends React.Component {
 							<h3 className="panel-title"><strong>{this.props.member.firstName} {this.props.member.surname}</strong></h3>
 						</div>
 						<div className="panel-body">
-							<img src={this.props.member.portrait} className="thumbnail" />
+							<img src={this.props.member.portrait} className="thumbnail center-block" style={{height: "100px", width: "100px"}}/>
 							<p><strong>Motto: </strong>{this.props.member.motto}</p>
 						</div>
 					</div>

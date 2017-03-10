@@ -20,9 +20,7 @@ export default class MemberTable extends React.Component {
 
 	selectMember(idx, e) {
 		let member = this.props.members[idx]
-		console.log(member)
 		this.setState({selectedMember: member})
-		console.log(this.state.selectedMember)
 	}
 
 	render() {
@@ -30,9 +28,9 @@ export default class MemberTable extends React.Component {
 		this.props.members.map((member, idx) => {
 			rows.push(			
 				<tr onClick={this.selectMember.bind(this, idx)} key={idx}>
-					<td>{member.firstName} {member.surname}</td>
-					<td>{member.occupation}</td>
-					<td>{member.company}</td>
+					<td className="col-md-4">{member.firstName} {member.surname}</td>
+					<td className="col-md-4">{member.occupation}</td>
+					<td className="col-md-4">{member.company}</td>
 				</tr>
 			)
 		})
@@ -44,9 +42,9 @@ export default class MemberTable extends React.Component {
 					<table className="table table-striped table-hover">
 						<thead>
 							<tr className="info">
-								<th>Name</th>
-								<th>Occupation</th>
-								<th>Company</th>
+								<th className="col-md-4">Name</th>
+								<th className="col-md-4">Occupation</th>
+								<th className="col-md-4">Company</th>
 							</tr>
 						</thead>
 						<tbody>
